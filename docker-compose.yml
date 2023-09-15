@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+    eira-validator:
+      container_name: validator-test
+      image: isaitb/xml-validator:latest
+      volumes:
+      -  ./resources:/validator/resources/egovera
+      environment:
+      - validator.resourceRoot=/validator/resources/
+      - spring.servlet.multipart.max-file-size=50MB
+      ports:
+      - 8080:8080
